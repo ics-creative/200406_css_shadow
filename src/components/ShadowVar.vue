@@ -4,15 +4,18 @@
     <div class="bg">
 
       <h4>単純なbox-shadow</h4>
-      <div class="group">
-        <div class="box shadow1"></div>
-        <div class="circle shadow1"></div>
+      <div class="group basicshadow">
+        <div class="box basic1"></div>
+        <div class="circle basic1"></div>
+        <div class="box basic2"></div>
+        <div class="box basic3"></div>
       </div>
 
       <h4>複数の影を重ねる(Layer-Shadow)</h4>
       <div class="group layershadow">
-        <div class="box shadow1"></div>
-        <div class="circle shadow1"></div>
+        <div class="box layer1"></div>
+        <div class="box layer2"></div>
+        <div class="box layer3"></div>
       </div>
 
     </div>
@@ -25,16 +28,17 @@
         <div class="box multiply">OK: filter: bulr + 乗算</div>
       </div>
 
-      <h4>グラデーション</h4>
+      <h4>グラデーションや画像を影にする</h4>
       <div class="group gradientshadow">
-        <div class="box"></div>
-        <div class="circle"></div>
+        <div class="box gradimg1">グラデーション</div>
+        <div class="box gradimg2">画像 + blur</div>
       </div>
 
-      <h4>覆い焼きで発光</h4>
-      <div class="group dodgeshadow">
-        <div class="box"></div>
-        <div class="circle"></div>
+      <h4>様々なブレンドモード</h4>
+      <div class="group blendshadow">
+        <div class="box dodge">覆い焼き</div>
+        <div class="box burn">焼き込み</div>
+        <div class="box hardlight">ハードライト</div>
       </div>
     </div>
 
@@ -118,8 +122,9 @@ h4 {
   padding: 30px 20px 60px 30px;
   display: flex;
   justify-content: space-around;
-  div {
+  > div {
     position: relative;
+    font-size: 13px;
     &::after {
       content: ' ';
       display: block;
@@ -138,6 +143,13 @@ h4 {
   height: 150px;
   background-color: #fff;
 }
+.rbox {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 20px;
+}
 .circle {
   display: inline-block;
   width: 150px;
@@ -146,26 +158,34 @@ h4 {
   border-radius: 50%;
 }
 
-.shadow1 {
-  box-shadow: 0 10px 25px 0 rgb(0, 0, 0, .5);
+.basicshadow {
+  .basic1 {
+    box-shadow: 0 10px 25px 0 rgb(0, 0, 0, .5);
+  }
+  .basic2 {
+    box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+  }
+  .basic3 {
+    box-shadow: 15px 15px 0px 0 rgba(60, 194, 235);
+  }
 }
 
 .colorshadow {
   .box-shadow {
-    box-shadow: 0 10px 25px 0 rgba(42, 159, 226, 0.9);
+    box-shadow: 0 10px 15px 5px rgba(42, 159, 226, 0.9);
   }
   .multiply {
     &::after{
       background-color: rgba(42, 159, 226);
-      filter: blur(20px);
-      transform: translateY(10px);
+      filter: blur(15px);
+      transform: translateY(10px) scale(1.05);
       mix-blend-mode: multiply;
     }
   }
 }
 
 .layershadow {
-  .box, .circle {
+  .layer1 {
     box-shadow:
       0 1.9px 2.5px rgba(0, 0, 0, 0.057),
       0 5px 6.1px rgba(0, 0, 0, 0.076),
@@ -174,10 +194,21 @@ h4 {
       0 38.4px 34.8px rgba(0, 0, 0, 0.1),
       0 101px 74px rgba(0, 0, 0, 0.13);
   }
+  .layer2 {
+    box-shadow:
+      -10px 10px 25px rgba(230, 180, 15, 0.9),
+      10px -10px 25px rgba(8, 131, 161, 0.9)
+  }
+  .layer3 {
+    box-shadow:
+      0 20px 0 -10px rgb(198, 224, 231),
+      0 40px 0 -20px rgb(105, 171, 209),
+      0 60px 0 -30px rgb(27, 115, 165),
+  }
 }
 
 .gradientshadow {
-  .box, .circle {
+  .gradimg1 {
     &::after{
       background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
       filter: blur(20px);
@@ -185,15 +216,44 @@ h4 {
       mix-blend-mode: multiply;
     }
   }
+  .gradimg2 {
+    &::after{
+      background-image: url(./bluetile.jpg);
+      background-size: cover;
+      filter: blur(10px);
+      transform: translateY(20px);
+      mix-blend-mode: multiply;
+    }
+  }
 }
 
-.dodgeshadow {
-  .box, .circle {
+.blendshadow {
+  background-image: url(./bluepaint.jpg);
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+  .dodge {
     &::after{
       background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
       filter: blur(20px);
-      transform: translateY(10px);
+      transform: translateY(10px) scale(1.1);
       mix-blend-mode: color-dodge;
+    }
+  }
+  .burn {
+    &::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
+      filter: blur(20px);
+      transform: translateY(10px) scale(1.1);
+      mix-blend-mode: color-burn;
+    }
+  }
+  .hardlight {
+    &::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
+      filter: blur(20px);
+      transform: translateY(10px) scale(1.1);
+      mix-blend-mode: hard-light;
     }
   }
 }
@@ -262,7 +322,8 @@ h4 {
       filter: drop-shadow(0 0 6px rgba(12, 28, 32, 0.767));
     }
     .content {
-      background-color: turquoise;
+      background-image: url(./bluepaint.jpg);
+      background-size: cover;
       width: 150px;
       height: 150px;
     }
