@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>filter: bulrやCSSグラデーションを使った様々な影</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .box::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .colorshadow .box-shadow {
+      box-shadow: 0 10px 15px 5px rgba(42, 159, 226, 0.9);
+    }
+    .colorshadow .multiply::after{
+      background-color: rgba(42, 159, 226);
+      filter: blur(15px);
+      transform: translateY(10px) scale(1.05);
+      mix-blend-mode: multiply;
+    }
+
+    .gradientshadow .gradimg1::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
+      filter: blur(20px);
+      transform: translateY(10px);
+      mix-blend-mode: multiply;
+    }
+    .gradientshadow .gradimg2::after{
+      background-image: url(img/bluepaint.jpg);
+      background-size: cover;
+      filter: blur(10px);
+      transform: translateY(20px);
+      mix-blend-mode: multiply;
+    }
+
+    .blendshadow {
+      background-image: url(img/bluepaint.jpg);
+      background-size: cover;
+      position: relative;
+      z-index: -1;
+    }
+    .blendshadow .dodge::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
+      filter: blur(20px);
+      transform: translateY(10px) scale(1.1);
+      mix-blend-mode: color-dodge;
+    }
+    .blendshadow .burn::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
+      filter: blur(20px);
+      transform: translateY(10px) scale(1.1);
+      mix-blend-mode: color-burn;
+    }
+    .blendshadow .hardlight::after{
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(8, 42, 87) );
+      filter: blur(20px);
+      transform: translateY(10px) scale(1.1);
+      mix-blend-mode: hard-light;
+    }
+    </style>
+  </head>
+  <body ontouchstart="">
+    <h1>filter: bulrやCSSグラデーションを使った様々な影</h1>
+      <div class="bg">
+        <h2>色付きの影<span class="note">背景にかかわらず影に見せる</span></h2>
+        <div class="group colorshadow">
+          <div class="box box-shadow">NG: box-shadow</div>
+          <div class="box multiply">OK: filter: bulr + 乗算</div>
+        </div>
+  
+        <h2>グラデーションや画像を影にする</h2>
+        <div class="group gradientshadow">
+          <div class="box gradimg1">グラデーション</div>
+          <div class="box gradimg2">画像 + blur</div>
+        </div>
+  
+        <h2>様々なブレンドモード</h2>
+        <div class="group blendshadow">
+          <div class="box dodge">覆い焼き</div>
+          <div class="box burn">焼き込み</div>
+          <div class="box hardlight">ハードライト</div>
+        </div>
+      </div>
+  </body>
+</html>

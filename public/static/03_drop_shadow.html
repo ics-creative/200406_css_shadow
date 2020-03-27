@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>filter: drop-shadowで自由な形の影をつける</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .box::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .imageshadow .img {
+      filter: drop-shadow(0px 10px 40px rgb(0, 0, 0));
+     
+    }
+
+    .box-and-drop .box-shadow {
+      box-shadow: 10px 10px 5px 0 rgb(0, 0, 0);
+    }
+    .box-and-drop .drop-shadow {
+      filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 35%;
+      height: 130px;
+    }
+    .spinner > div {
+      padding-top: 20px;
+    }
+    .spinner .dot {
+      display: inline-block;
+      position: absolute;
+      width: 20px;
+      height: 100px;
+      animation: spin 2.1s cubic-bezier(.64,.01,.29,1) 0s infinite normal none running;
+    }
+    .spinner .dot::after {
+      content: ' ';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+    }
+    .spinner .dot.dot1 { animation-delay: 200ms; }
+    .spinner .dot.dot2 { animation-delay: 400ms; }
+    .spinner .dot.dot3 { animation-delay: 600ms; }
+    .spinner .dot.dot4 { animation-delay: 800ms; }
+    .spinner .dot.dot5 { animation-delay: 1000ms; }
+    .spinner .dot.dot6 { animation-delay: 1200ms; }
+    .spinner .dot.dot7 { animation-delay: 1400ms; }
+    .spinner .dot.dot8 { animation-delay: 1600ms; }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .spinner .box-shadow .dot:after {
+      box-shadow: 0 10px 15px 0 rgb(0, 0, 0, .7);
+    }
+    .spinner .drop-shadow {
+      filter: drop-shadow(0 10px 10px rgb(0, 0, 0, .9));
+    }
+
+    .stamp .box {
+      padding: 15px;
+      background-color: transparent;
+    }
+    .stamp .box::after {
+      background: radial-gradient(at center, transparent, transparent 10px, #fff 10px);
+      background-size: 30px 30px;
+      background-position: -15px -15px;
+      filter: drop-shadow(0 0 6px rgba(12, 28, 32, 0.767));
+    }
+    .stamp .box .content {
+      background-image: url(img/bluepaint.jpg);
+      background-size: cover;
+      width: 120px;
+      height: 120px;
+    }
+    </style>
+  </head>
+  <body ontouchstart="">
+    <h1>filter: drop-shadowで自由な形の影をつける</h1>
+    <div class="bg">
+
+      <h2>drop-shadowで画像に合わせた影をつける</h2>
+      <div class="group imageshadow">
+        <div class="img"><img src="img/bitmap.png" width="200" alt="charactor bitmap"></div>
+      </div>
+
+      <h2>box-shadowとdrop-shadowの見た目の違い</h2>
+      <div class="group box-and-drop">
+        <div class="box box-shadow">box-shadow</div>
+        <div class="box drop-shadow">drop-shadow</div>
+      </div>
+
+      <h2>drop-shadowは影の重なりで悩んだときにも使える</h2>
+      <div class="group spinner">
+        <div class="box-shadow">
+          <span class="dot dot1"></span>
+          <span class="dot dot2"></span>
+          <span class="dot dot3"></span>
+          <span class="dot dot4"></span>
+          <span class="dot dot5"></span>
+          <span class="dot dot6"></span>
+          <span class="dot dot7"></span>
+          <span class="dot dot8"></span>
+        </div>
+      </div>
+      <div class="group spinner">
+        <div class="drop-shadow">
+          <span class="dot dot1"></span>
+          <span class="dot dot2"></span>
+          <span class="dot dot3"></span>
+          <span class="dot dot4"></span>
+          <span class="dot dot5"></span>
+          <span class="dot dot6"></span>
+          <span class="dot dot7"></span>
+          <span class="dot dot8"></span>
+        </div>
+      </div>
+
+      <h2>透明色のグラデーションを使った不定形の影</h2>
+      <div class="group stamp">
+        <div class="box"><div class="content"></div></div>
+      </div>
+    </div>
+  </body>
+</html>

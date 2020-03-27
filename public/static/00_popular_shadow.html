@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>流行のあの表現</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .box::after, .circle::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .longshadow {
+      padding-bottom: 100px;
+      overflow: hidden;
+    }
+    .longshadow .box::after{
+      background-image: linear-gradient(to bottom, rgb(0, 0, 0, .65), rgb(0, 0, 0, 0) );
+      transform-origin: 50% 0;
+      transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(1.5);
+      transition: transform 1s;
+    }
+    .longshadow .box:hover::after {
+      transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(4);
+    }
+    .longshadow .circle::after{
+      background-image: linear-gradient(to bottom, rgb(0, 0, 0, .65), rgb(0, 0, 0, 0) );
+      transform-origin: 50% 0;
+      transform: translateY(50%) rotate(-45deg);
+      transition: transform 1s;
+    }
+    .longshadow .circle:hover::after {
+      transform: translateY(50%) rotate(-45deg) scaleY(3);
+    }
+
+    .neumorphism {
+      background-color: rgb(190, 205, 214);
+      padding: 50px;
+    }
+    .neumorphism .box {
+      border-radius: 10px;
+    }
+    .neumorphism .box, .neumorphism .circle {
+      background-color: rgb(190, 205, 214);
+      transition: box-shadow 0.5s;
+      box-shadow:
+        10px 10px 30px rgba(18, 47, 61, 0.5),
+        -10px -10px 30px rgba(248, 253, 255, 0.9),
+        inset 10px 10px 30px transparent,
+        inset -10px -10px 30px transparent;
+    }
+    .neumorphism .box:hover, .neumorphism .circle:hover {
+      box-shadow:
+        10px 10px 30px transparent,
+        -10px -10px 30px transparent,
+        inset 10px 10px 30px rgba(18, 47, 61, 0.5),
+        inset -10px -10px 30px rgba(248, 253, 255, 0.9);
+    }
+
+    </style>
+  </head>
+  <body ontouchstart="">
+    <h1>流行のあの表現</h1>
+    <div class="note">ホバー/タップでアニメーションします</div>
+
+    <div class="bg">
+      <h2>ロングシャドウ（XX年ごろ）</h2>
+      <div class="group longshadow">
+        <div class="box"></div>
+        <div class="circle"></div>
+      </div>
+
+      <h2>ネオモーフィズム（2020年?）</h2>
+      <div class="group neumorphism">
+        <div class="box"></div>
+        <div class="circle"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

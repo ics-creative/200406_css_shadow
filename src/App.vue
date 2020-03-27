@@ -1,25 +1,16 @@
 <template>
   <div id="app">
-    <MixedSample v-if="false" />
-    <ShadowVar v-if="true" />
-    <AnimPerformance v-if="true" />
-    <ShadowTest></ShadowTest>
+    <PerformanceTest />
   </div>
 </template>
 
 <script>
-import AnimPerformance from './components/AnimPerformance'
-import ShadowVar from './components/ShadowVar'
-import MixedSample from './components/MixedSample'
-import ShadowTest from './components/ShadowTest'
+import PerformanceTest from './components/PerformanceTest'
 
 export default {
   name: 'App',
   components: {
-    AnimPerformance,
-    ShadowVar,
-    MixedSample,
-    ShadowTest
+    PerformanceTest
   }
 }
 </script>

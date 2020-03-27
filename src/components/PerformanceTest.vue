@@ -1,9 +1,11 @@
 <template>
   <div class="shadow-test1">
-    <h4>影のパフォーマンス<span class="note">drop-shadowを大量に適用すると重くなりやすい（特にChrome）</span></h4>
+    <h4>影のパフォーマンス<br />drop-shadowを大量に適用すると重くなりやすい（特にChrome）</h4>
     <div class="cont">
-      <button @click="addBars">Add 100 Bars</button>
-      <select v-model="type">
+      <button @click="addBars">100個追加</button>
+      <button @click="reset">リセット</button>
+      現在の要素数： {{ bars.length }} |
+      影の付け方：<select v-model="type">
         <option value="box">box-shadow</option>
         <option value="drop-each">drop-shadow（個々に適用）</option>
         <option value="drop-one">drop-shadow（まとめて適用）</option>
@@ -36,17 +38,25 @@ export default {
       const ADDCOUNT = 100
       const bars = Array(ADDCOUNT).fill(0).map(() => ({ x: Math.random(), y: Math.random() }))
       this.$data.bars.push(...bars)
+    },
+    reset () {
+      this.$data.bars = []
     }
+  },
+  mounted () {
+    this.addBars()
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .stage {
-  width: 100%;
+  width: 90%;
   height: 600px;
+  margin: 10px 5%;
   position: relative;
   border: 1px solid #2c3e50;
+  box-sizing: border-box;
   overflow: hidden;
 }
 .bars {
@@ -58,7 +68,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
+  width: 20px;
   height: 50px;
   background-color: rgb(236, 221, 132);
   animation: rotate 1s linear 0s infinite;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>box-shadowによる基本の影</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .basicshadow .basic1 {
+      box-shadow: 0 10px 25px 0 rgb(0, 0, 0, .5);
+    }
+    .basicshadow .basic2 {
+      box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+    }
+    .basicshadow .basic3 {
+      box-shadow: 15px 15px 0px 0 rgba(60, 194, 235);
+    }
+
+    .layershadow .layer1 {
+      box-shadow:
+        0 1.9px 2.5px rgba(0, 0, 0, 0.057),
+        0 5px 6.1px rgba(0, 0, 0, 0.076),
+        0 10.1px 11.4px rgba(0, 0, 0, 0.086),
+        0 19.2px 19.8px rgba(0, 0, 0, 0.092),
+        0 38.4px 34.8px rgba(0, 0, 0, 0.1),
+        0 101px 74px rgba(0, 0, 0, 0.13);
+    }
+    .layershadow .layer2 {
+      box-shadow:
+        -10px 10px 25px rgba(230, 180, 15, 0.9),
+        10px -10px 25px rgba(8, 131, 161, 0.9)
+    }
+    .layershadow .layer3 {
+      box-shadow:
+        0 20px 0 -10px rgb(198, 224, 231),
+        0 40px 0 -20px rgb(105, 171, 209),
+        0 60px 0 -30px rgb(27, 115, 165)
+    }
+    </style>
+  </head>
+  <body ontouchstart="">
+    <h1>box-shadowによる基本の影</h1>
+    <div class="bg">
+
+      <h2>単純なbox-shadow</h4>
+      <div class="group basicshadow">
+        <div class="box basic1"></div>
+        <div class="circle basic1"></div>
+        <div class="box basic2"></div>
+        <div class="box basic3"></div>
+      </div>
+
+      <h2>複数のbox-shadowを重ねる(レイヤーシャドウ)</h4>
+      <div class="group layershadow">
+        <div class="box layer1"></div>
+        <div class="box layer2"></div>
+        <div class="box layer3"></div>
+      </div>
+
+    </div>
+  </body>
+</html>
