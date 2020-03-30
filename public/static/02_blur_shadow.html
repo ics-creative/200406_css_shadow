@@ -27,24 +27,32 @@
       transform: translateY(10px) scale(1.05);
       mix-blend-mode: multiply;
     }
-
+    
+    .gradientshadow .gradimg1 {
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
+    }
     .gradientshadow .gradimg1::after{
       background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
       filter: blur(20px);
       transform: translateY(10px);
       mix-blend-mode: multiply;
     }
+    .gradientshadow .gradimg2 {
+      background-image: url(img/cardona.jpg);
+      background-size: cover;      
+    }
     .gradientshadow .gradimg2::after{
-      background-image: url(img/bluepaint.jpg);
+      background-image: url(img/cardona.jpg);
       background-size: cover;
-      filter: blur(10px);
+      filter: blur(20px);
       transform: translateY(20px);
       mix-blend-mode: multiply;
     }
 
     .blendshadow {
-      background-image: url(img/bluepaint.jpg);
+      background-image: url(img/dubai.jpg);
       background-size: cover;
+      background-position: center;
       position: relative;
       z-index: -1;
     }

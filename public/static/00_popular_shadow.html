@@ -28,7 +28,7 @@
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(1.5);
       transition: transform 1s;
     }
-    .longshadow .box:hover::after {
+    .longshadow .box::after {
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(4);
     }
     .longshadow .circle::after{
@@ -57,7 +57,7 @@
         inset 10px 10px 30px transparent,
         inset -10px -10px 30px transparent;
     }
-    .neumorphism .box:hover, .neumorphism .circle:hover {
+    .neumorphism .box:hover, .neumorphism .circle {
       box-shadow:
         10px 10px 30px transparent,
         -10px -10px 30px transparent,
@@ -72,13 +72,13 @@
     <div class="note">ホバー/タップでアニメーションします</div>
 
     <div class="bg">
-      <h2>ロングシャドウ（XX年ごろ）</h2>
+      <h2>ロングシャドウ（2013年ごろ〜）</h2>
       <div class="group longshadow">
         <div class="box"></div>
         <div class="circle"></div>
       </div>
 
-      <h2>ネオモーフィズム（2020年?）</h2>
+      <h2>ネオモーフィズム（2020年?〜）</h2>
       <div class="group neumorphism">
         <div class="box"></div>
         <div class="circle"></div>
