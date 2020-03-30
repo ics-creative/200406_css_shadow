@@ -11,9 +11,12 @@
       box-shadow: 0 10px 25px 0 rgb(0, 0, 0, .5);
     }
     .basicshadow .basic2 {
-      box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+      box-shadow: inset 0 10px 25px 0 rgb(0, 0, 0, .5);
     }
     .basicshadow .basic3 {
+      box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+    }
+    .basicshadow .basic4 {
       box-shadow: 15px 15px 0px 0 rgba(60, 194, 235);
     }
 
@@ -40,18 +43,19 @@
     </style>
   </head>
   <body ontouchstart="">
+    <a href="../../index.html">サンプルのトップに戻る</a>
     <h1>box-shadowによる基本の影</h1>
     <div class="bg">
-
-      <h2>単純なbox-shadow</h4>
+      
+      <h2 id="ex1">単純なbox-shadow</h4>
       <div class="group basicshadow">
         <div class="box basic1"></div>
-        <div class="circle basic1"></div>
-        <div class="box basic2"></div>
+        <div class="circle basic2"></div>
         <div class="box basic3"></div>
+        <div class="box basic4"></div>
       </div>
 
-      <h2>複数のbox-shadowを重ねる(レイヤーシャドウ)</h4>
+      <h2 id="ex2">複数のbox-shadowを重ねる(レイヤーシャドウ)</h4>
       <div class="group layershadow">
         <div class="box layer1"></div>
         <div class="box layer2"></div>

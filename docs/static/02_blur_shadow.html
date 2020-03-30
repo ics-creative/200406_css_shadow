@@ -27,24 +27,32 @@
       transform: translateY(10px) scale(1.05);
       mix-blend-mode: multiply;
     }
-
+    
+    .gradientshadow .gradimg1 {
+      background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
+    }
     .gradientshadow .gradimg1::after{
       background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
       filter: blur(20px);
       transform: translateY(10px);
       mix-blend-mode: multiply;
     }
+    .gradientshadow .gradimg2 {
+      background-image: url(img/cardona.jpg);
+      background-size: cover;      
+    }
     .gradientshadow .gradimg2::after{
-      background-image: url(img/bluepaint.jpg);
+      background-image: url(img/cardona.jpg);
       background-size: cover;
-      filter: blur(10px);
+      filter: blur(20px);
       transform: translateY(20px);
       mix-blend-mode: multiply;
     }
 
     .blendshadow {
-      background-image: url(img/bluepaint.jpg);
+      background-image: url(img/dubai.jpg);
       background-size: cover;
+      background-position: center;
       position: relative;
       z-index: -1;
     }
@@ -69,21 +77,22 @@
     </style>
   </head>
   <body ontouchstart="">
+    <a href="../../index.html">サンプルのトップに戻る</a>
     <h1>filter: bulrやCSSグラデーションを使った様々な影</h1>
       <div class="bg">
-        <h2>色付きの影<span class="note">背景にかかわらず影に見せる</span></h2>
+        <h2 id="ex1">色付きの影<span class="note">背景にかかわらず影に見せる</span></h2>
         <div class="group colorshadow">
           <div class="box box-shadow">NG: box-shadow</div>
           <div class="box multiply">OK: filter: bulr + 乗算</div>
         </div>
   
-        <h2>グラデーションや画像を影にする</h2>
+        <h2 id="ex2">グラデーションや画像を影にする</h2>
         <div class="group gradientshadow">
           <div class="box gradimg1">グラデーション</div>
           <div class="box gradimg2">画像 + blur</div>
         </div>
   
-        <h2>様々なブレンドモード</h2>
+        <h2 id="ex3">様々なブレンドモード</h2>
         <div class="group blendshadow">
           <div class="box dodge">覆い焼き</div>
           <div class="box burn">焼き込み</div>

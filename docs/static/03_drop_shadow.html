@@ -19,8 +19,16 @@
     }
 
     .imageshadow .img {
-      filter: drop-shadow(0px 10px 40px rgb(0, 0, 0));
-     
+      filter: drop-shadow(0px 5px 10px rgb(0, 0, 0));
+    }
+    .imageshadow .img .boxcat {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      top: 60px;
+      background-image: url(img/boxcat.svg);
+      background-repeat: no-repeat;
+      transform: rotate(30deg);
     }
 
     .box-and-drop .box-shadow {
@@ -73,40 +81,60 @@
       filter: drop-shadow(0 10px 10px rgb(0, 0, 0, .9));
     }
 
-    .stamp .box {
+    .stamps {
+      display: block;
+      text-align: center;
+    }
+    .stamps .stamp {
+      display: inline-block;
       padding: 15px;
       background-color: transparent;
     }
-    .stamp .box::after {
+    .stamps .stamp::after {
       background: radial-gradient(at center, transparent, transparent 10px, #fff 10px);
       background-size: 30px 30px;
       background-position: -15px -15px;
       filter: drop-shadow(0 0 6px rgba(12, 28, 32, 0.767));
     }
-    .stamp .box .content {
-      background-image: url(img/bluepaint.jpg);
+    .stamps .stamp .content {
       background-size: cover;
       width: 120px;
       height: 120px;
     }
+    .stamps .stamp.stamp1 {
+      transform: rotate(-30deg);
+    }
+    .stamps .stamp.stamp2 {
+      transform: rotate(20deg);
+      left: -20px;
+      top: 20px;
+    }
+    .stamps .stamp.stamp1 .content {
+      background-image: url(img/grape.jpg);
+    }
+    .stamps .stamp.stamp2 .content {
+      background-image: url(img/cardona.jpg);
+    }
     </style>
   </head>
   <body ontouchstart="">
+    <a href="../../index.html">サンプルのトップに戻る</a>
     <h1>filter: drop-shadowで自由な形の影をつける</h1>
     <div class="bg">
 
-      <h2>drop-shadowで画像に合わせた影をつける</h2>
+      <h2 id="ex1">drop-shadowで画像に合わせた影をつける</h2>
       <div class="group imageshadow">
         <div class="img"><img src="img/bitmap.png" width="200" alt="charactor bitmap"></div>
+        <div class="img"><div class="boxcat"></div></div>
       </div>
 
-      <h2>box-shadowとdrop-shadowの見た目の違い</h2>
+      <h2 id="ex2">box-shadowとdrop-shadowの見た目の違い</h2>
       <div class="group box-and-drop">
         <div class="box box-shadow">box-shadow</div>
         <div class="box drop-shadow">drop-shadow</div>
       </div>
 
-      <h2>drop-shadowは影の重なりで悩んだときにも使える</h2>
+      <h2 id="ex3">drop-shadowは影の重なりで悩んだときにも使える</h2>
       <div class="group spinner">
         <div class="box-shadow">
           <span class="dot dot1"></span>
@@ -132,9 +160,10 @@
         </div>
       </div>
 
-      <h2>透明色のグラデーションを使った不定形の影</h2>
-      <div class="group stamp">
-        <div class="box"><div class="content"></div></div>
+      <h2 id="ex4">透明色のグラデーションを使った不定形の影</h2>
+      <div class="group stamps">
+        <div class="box stamp stamp1"><div class="content"></div></div>
+        <div class="box stamp stamp2"><div class="content"></div></div>
       </div>
     </div>
   </body>
