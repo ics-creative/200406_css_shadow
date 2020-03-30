@@ -28,7 +28,7 @@
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(1.5);
       transition: transform 1s;
     }
-    .longshadow .box::after {
+    .longshadow .box:hover::after {
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(4);
     }
     .longshadow .circle::after{
@@ -57,7 +57,7 @@
         inset 10px 10px 30px transparent,
         inset -10px -10px 30px transparent;
     }
-    .neumorphism .box:hover, .neumorphism .circle {
+    .neumorphism .box:hover, .neumorphism .circle:hover {
       box-shadow:
         10px 10px 30px transparent,
         -10px -10px 30px transparent,
