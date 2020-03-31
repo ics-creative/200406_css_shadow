@@ -6,12 +6,12 @@ body {
 }
 
 h1 {
-  color: rgb(28, 30, 32);
+  color: rgb(31, 40, 46);
   font-size: 24px;
 }
 h2 {
   font-size: 16px;
-  color: rgb(28, 30, 32);
+  color: rgb(27, 32, 36);
   background-color: #ffffff;
   margin: 0;
   padding: 20px 0 10px 0;
@@ -33,6 +33,7 @@ h2 {
   padding: 30px 20px 60px 30px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .group > div {
   position: relative;
@@ -40,6 +41,7 @@ h2 {
   box-sizing: border-box;
   padding-top: 60px;
   text-align: center;
+  margin: 30px;
 }
 
 .box {
