@@ -7,6 +7,7 @@
     <title>filter: blurやCSSグラデーションを使った様々な影</title>
     <link rel="stylesheet" href="common.css">
     <style>
+    /* 共通：疑似要素のスタイル */
     .box::after {
       content: ' ';
       display: block;
@@ -18,9 +19,12 @@
       height: 100%;
     }
 
+    /* 1. 色付きの影背景にかかわらず影に見せる */
+    /* Bad: box-shadowを使った場合 */
     .colorshadow .box-shadow {
       box-shadow: 0 10px 15px 5px rgb(42, 159, 226, 0.9);
     }
+    /* Good: drop-shadowを使った場合 */
     .colorshadow .multiply::after{
       background-color: rgb(42, 159, 226);
       filter: blur(15px);
@@ -28,6 +32,7 @@
       mix-blend-mode: multiply;
     }
     
+    /* 2. グラデーションや画像を影にする */
     .gradientshadow .gradimg1 {
       background-image: linear-gradient(  rgb(88, 195, 214), rgb(12, 75, 156) );
     }
@@ -49,6 +54,7 @@
       mix-blend-mode: multiply;
     }
 
+    /* 3. 様々なブレンドモード */
     .blendshadow {
       background-image: url(img/dubai.jpg);
       background-size: cover;

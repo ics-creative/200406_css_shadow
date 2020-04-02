@@ -7,6 +7,8 @@
     <title>box-shadowによる基本の影</title>
     <link rel="stylesheet" href="common.css">
     <style>
+
+    /* 1. 単純なbox-shadow */
     .basicshadow .basic1 {
       box-shadow: 0 10px 25px 0 rgb(0, 0, 0, .5);
     }
@@ -20,6 +22,7 @@
       box-shadow: 15px 15px 0px 0 rgb(60, 194, 235);
     }
 
+    /* 2. 複数のbox-shadowを重ねる(レイヤーシャドウ) */
     .layershadow .layer1 {
       box-shadow:
         0 1.9px 2.5px rgb(0, 0, 0, 0.057),

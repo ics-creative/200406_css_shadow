@@ -7,6 +7,7 @@
     <title>filter: drop-shadowで自由な形の影をつける</title>
     <link rel="stylesheet" href="common.css">
     <style>
+    /* 共通：疑似要素のスタイル */
     .box::after {
       content: ' ';
       display: block;
@@ -18,6 +19,7 @@
       height: 100%;
     }
 
+    /* drop-shadowで画像に合わせた影をつける */
     .imageshadow .img {
       filter: drop-shadow(0px 5px 10px rgb(0, 0, 0));
     }
@@ -31,6 +33,7 @@
       transform: rotate(30deg);
     }
 
+    /* 2. box-shadowとdrop-shadowの見た目の違い */
     .box-and-drop .box-shadow {
       box-shadow: 10px 10px 5px 0 rgb(0, 0, 0);
     }
@@ -38,13 +41,11 @@
       filter: drop-shadow(10px 10px 5px rgb(0, 0, 0));
     }
 
+    /* 3. drop-shadowは影の重なりで悩んだときにも使える */
     .spinner {
       display: inline-block;
       width: 35%;
       height: 130px;
-    }
-    .spinner > div {
-      padding-top: 20px;
     }
     .spinner .dot {
       display: inline-block;
@@ -74,13 +75,19 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    .spinner > div {
+      padding-top: 20px;
+    }
+    /* box-shadowの場合（左側） */
     .spinner .box-shadow .dot:after {
       box-shadow: 0 10px 15px 0 rgb(0, 0, 0, .7);
     }
+    /* drop-shadowの場合（右側） */
     .spinner .drop-shadow {
       filter: drop-shadow(0 10px 10px rgb(0, 0, 0, .9));
     }
 
+    /* 4. 作例：透明色のグラデーションを使った不定形の影 */
     .stamps {
       display: block;
       text-align: center;
@@ -91,6 +98,7 @@
       background-color: transparent;
     }
     .stamps .stamp::after {
+      /* 透明色のグラデーションで切手のギザギザを表現 */
       background: radial-gradient(at center, transparent, transparent 10px, #fff 10px);
       background-size: 30px 30px;
       background-position: -15px -15px;
@@ -117,6 +125,7 @@
     }
     </style>
   </head>
+  
   <body ontouchstart="">
     <a href="../index.html">サンプルのトップに戻る</a>
     <h1>filter: drop-shadowで自由な形の影をつける</h1>

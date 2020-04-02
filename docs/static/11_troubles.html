@@ -7,6 +7,7 @@
     <title>影のトラブル：傾向と対策</title>
     <link rel="stylesheet" href="common.css">
     <style>
+    /* 1. 影のアニメーションがなんとなくカクカクする（Safari） */
     .box {
       display: inline-block;
       padding: 10% 30%;
@@ -16,6 +17,7 @@
       margin-bottom: 50px;
     }
 
+    /* ブラー半径を変更（Safariだと綺麗にアニメーションしない） */
     .box1{
       transition: box-shadow 2s ease-out, transform 2s ease-out;
     }
@@ -24,6 +26,7 @@
       transform: translateY(-10px);
     }
 
+    /* 透明度のみを変更 */
     .box2{
       transition: box-shadow 2s ease-out, transform 2s ease-out;
       box-shadow: 0 15px 10px 5px rgb(0, 0, 0, 0);
@@ -32,7 +35,8 @@
     box-shadow: 0 15px 10px 5px rgb(0, 0, 0, 1);
     transform: translateY(-10px);
     }
-
+    
+    /* 2. hoverで影を出したら周辺が欠ける（Safari） */
     .img-tama {
       position: relative;
       display: inline-block;
@@ -44,7 +48,6 @@
       background-size: contain;
       border: 1px dashed gray;
     }
-
     .trouble1 .ng {
       display: inline-block;
       font-size: 0;
@@ -63,11 +66,7 @@
       filter: drop-shadow(0 10px 60px rgb(0, 0, 0, .9));
     }
 
-    @keyframes shadow {
-      0% { filter: drop-shadow(0 0px 3px rgb(0, 0, 0, .9)); }
-      100% { filter: drop-shadow(0 10px 60px rgb(0, 0, 0, .9)); }
-    }
-
+    /* 3. アニメーション中に影が消える（Safari） */
     .menu-icon-outer {
       margin-top: 100px;
       padding: 50px;
