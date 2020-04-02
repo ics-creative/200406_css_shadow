@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>filter: bulrやCSSグラデーションを使った様々な影</title>
+    <title>filter: blurやCSSグラデーションを使った様々な影</title>
     <link rel="stylesheet" href="common.css">
     <style>
     .box::after {
@@ -19,10 +19,10 @@
     }
 
     .colorshadow .box-shadow {
-      box-shadow: 0 10px 15px 5px rgba(42, 159, 226, 0.9);
+      box-shadow: 0 10px 15px 5px rgb(42, 159, 226, 0.9);
     }
     .colorshadow .multiply::after{
-      background-color: rgba(42, 159, 226);
+      background-color: rgb(42, 159, 226);
       filter: blur(15px);
       transform: translateY(10px) scale(1.05);
       mix-blend-mode: multiply;
@@ -78,12 +78,12 @@
   </head>
   <body ontouchstart="">
     <a href="../index.html">サンプルのトップに戻る</a>
-    <h1>filter: bulrやCSSグラデーションを使った様々な影</h1>
+    <h1>filter: blurやCSSグラデーションを使った様々な影</h1>
       <div class="bg">
         <h2 id="ex1">色付きの影<span class="note">背景にかかわらず影に見せる</span></h2>
         <div class="group colorshadow">
           <div class="box box-shadow">NG: box-shadow</div>
-          <div class="box multiply">OK: filter: bulr + 乗算</div>
+          <div class="box multiply">OK: filter: blur + 乗算</div>
         </div>
   
         <h2 id="ex2">グラデーションや画像を影にする</h2>
