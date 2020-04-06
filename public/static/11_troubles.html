@@ -29,10 +29,10 @@
     /* 透明度のみを変更 */
     .box2{
       transition: box-shadow 2s ease-out, transform 2s ease-out;
-      box-shadow: 0 15px 10px 5px rgb(0, 0, 0, 0);
+      box-shadow: 0 15px 10px 5px rgba(0, 0, 0, 0);
     }
     .box2:hover {
-    box-shadow: 0 15px 10px 5px rgb(0, 0, 0, 1);
+    box-shadow: 0 15px 10px 5px rgba(0, 0, 0, 1);
     transform: translateY(-10px);
     }
     
@@ -51,19 +51,19 @@
     .trouble1 .ng {
       display: inline-block;
       font-size: 0;
-      filter: drop-shadow(0 0px 3px rgb(0, 0, 0, .5));
+      filter: drop-shadow(0 0px 3px rgba(0, 0, 0, .5));
     }
     .trouble1 .ng:hover {
-      filter: drop-shadow(0 10px 50px rgb(0, 0, 0, .9));
+      filter: drop-shadow(0 10px 50px rgba(0, 0, 0, .9));
     }
     .trouble1 .ok {
       display: inline-block;
       font-size: 0;
       padding: 100px;
-      filter: blur(0) drop-shadow(0 0px 3px rgb(0, 0, 0, .9));
+      filter: blur(0) drop-shadow(0 0px 3px rgba(0, 0, 0, .9));
     }
     .trouble1 .ok:hover {
-      filter: drop-shadow(0 10px 60px rgb(0, 0, 0, .9));
+      filter: drop-shadow(0 10px 60px rgba(0, 0, 0, .9));
     }
 
     /* 3. アニメーション中に影が消える（Safari） */
@@ -73,10 +73,10 @@
       text-align: center;
     }
     .menu-icon-outer.ng {
-      filter: drop-shadow(0 3px 6px rgb(48, 29, 17, 0.5)) drop-shadow(0 6px 12px rgb(241, 205, 128, 0.5));
+      filter: drop-shadow(0 3px 6px rgba(48, 29, 17, 0.5)) drop-shadow(0 6px 12px rgba(241, 205, 128, 0.5));
     }
     .menu-icon-outer.ok {
-      filter: drop-shadow(0 3px 6px rgb(48, 29, 17, 0.5));
+      filter: drop-shadow(0 3px 6px rgba(48, 29, 17, 0.5));
     }
     .menu-icon {
       position: relative;
@@ -116,7 +116,7 @@
     </style>
   </head>
   <body ontouchstart="">
-    <a href="../index.html">サンプルのトップに戻る</a>
+    <a href="./index.html">サンプルのトップに戻る</a>
     <h1 id="ex1">影の闇 - トラブルと回避策</h1>
     <div class="note">※これらのサンプルは2020/3/25時点のChrome, Safari, Firefoxで表示を確認しています。不具合やブラウザの制限はバージョンで変わる可能性があるため、最新の環境でご確認ください</div>
 

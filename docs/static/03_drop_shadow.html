@@ -9,7 +9,7 @@
     <style>
     /* 共通：疑似要素のスタイル */
     .box::after {
-      content: ' ';
+      content: '';
       display: block;
       position: absolute;
       z-index: -1;
@@ -55,7 +55,7 @@
       animation: spin 2.1s cubic-bezier(.64,.01,.29,1) 0s infinite normal none running;
     }
     .spinner .dot::after {
-      content: ' ';
+      content: '';
       display: block;
       width: 20px;
       height: 20px;
@@ -80,11 +80,11 @@
     }
     /* box-shadowの場合（左側） */
     .spinner .box-shadow .dot:after {
-      box-shadow: 0 10px 15px 0 rgb(0, 0, 0, .7);
+      box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .7);
     }
     /* drop-shadowの場合（右側） */
     .spinner .drop-shadow {
-      filter: drop-shadow(0 10px 10px rgb(0, 0, 0, .9));
+      filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .9));
     }
 
     /* 4. 作例：透明色のグラデーションを使った不定形の影 */
@@ -102,7 +102,7 @@
       background: radial-gradient(at center, transparent, transparent 10px, #fff 10px);
       background-size: 30px 30px;
       background-position: -15px -15px;
-      filter: drop-shadow(0 0 6px rgb(12, 28, 32, 0.767));
+      filter: drop-shadow(0 0 6px rgba(12, 28, 32, 0.767));
     }
     .stamps .stamp .content {
       background-size: cover;

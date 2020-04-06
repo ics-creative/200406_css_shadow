@@ -9,7 +9,7 @@
     <style>
     /* 共通：疑似要素のスタイル */
     .box::after {
-      content: ' ';
+      content: '';
       display: block;
       position: absolute;
       z-index: -1;
@@ -22,7 +22,7 @@
     /* 1. 色付きの影背景にかかわらず影に見せる */
     /* Bad: box-shadowを使った場合 */
     .colorshadow .box-shadow {
-      box-shadow: 0 10px 15px 5px rgb(42, 159, 226, 0.9);
+      box-shadow: 0 10px 15px 5px rgba(42, 159, 226, 0.9);
     }
     /* Good: drop-shadowを使った場合 */
     .colorshadow .multiply::after{

@@ -9,7 +9,7 @@
     <style>
     /* 共通：疑似要素のスタイル */
     .box::after, .circle::after {
-      content: ' ';
+      content: '';
       display: block;
       position: absolute;
       z-index: -1;
@@ -25,7 +25,7 @@
       overflow: hidden;
     }
     .longshadow .box::after{
-      background-image: linear-gradient(to bottom, rgb(0, 0, 0, .65), rgb(0, 0, 0, 0) );
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, .65), rgba(0, 0, 0, 0) );
       transform-origin: 50% 0;
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(1.5);
       transition: transform 1s;
@@ -34,7 +34,7 @@
       transform: translateY(50%) skewY(-45deg) skewX(25deg) scaleY(4);
     }
     .longshadow .circle::after{
-      background-image: linear-gradient(to bottom, rgb(0, 0, 0, .65), rgb(0, 0, 0, 0) );
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, .65), rgba(0, 0, 0, 0) );
       transform-origin: 50% 0;
       transform: translateY(50%) rotate(-45deg);
       transition: transform 1s;
@@ -55,8 +55,8 @@
       background-color: rgb(190, 205, 214);
       transition: box-shadow 0.5s;
       box-shadow:
-        10px 10px 30px rgb(18, 47, 61, 0.5),
-        -10px -10px 30px rgb(248, 253, 255, 0.9),
+        10px 10px 30px rgba(18, 47, 61, 0.5),
+        -10px -10px 30px rgba(248, 253, 255, 0.9),
         inset 10px 10px 30px transparent,
         inset -10px -10px 30px transparent;
     }
@@ -64,8 +64,8 @@
       box-shadow:
         10px 10px 30px transparent,
         -10px -10px 30px transparent,
-        inset 10px 10px 30px rgb(18, 47, 61, 0.5),
-        inset -10px -10px 30px rgb(248, 253, 255, 0.9);
+        inset 10px 10px 30px rgba(18, 47, 61, 0.5),
+        inset -10px -10px 30px rgba(248, 253, 255, 0.9);
     }
 
     </style>
